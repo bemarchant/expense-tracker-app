@@ -6,7 +6,9 @@ import { getFormattedDate } from "../../util/date";
 const ExpenseItem = ({ description, amount, date }) => {
   const navigation = useNavigation();
   const expensePressHandler = () => {
-    navigation.navigate("ManageExpenseScreen");
+    navigation.navigate("ManageExpenseScreen", {
+      expenseId: id,
+    });
   };
 
   return (
