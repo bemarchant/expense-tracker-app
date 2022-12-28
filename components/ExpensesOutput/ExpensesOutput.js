@@ -31,7 +31,10 @@ const DUMMY_EXPENSES = [
   },
 ];
 
-const ExpensesOutput = ({ periodName }) => {
+const ExpensesOutput = ({ expenses, periodName }) => {
+  console.log("ExpensesOutput");
+
+  console.log("ExpensesOutput - periodName", periodName);
   return (
     <View>
       <ExpensesSummary expenses={DUMMY_EXPENSES} periodName={periodName} />
