@@ -1,5 +1,4 @@
 import { createContext, useReducer } from "react";
-import { exp } from "react-native/Libraries/Animated/Easing";
 
 const DUMMY_EXPENSES = [
   {
@@ -19,14 +18,14 @@ const DUMMY_EXPENSES = [
   {
     id: "e3",
     description: "Climbing shoes",
-    amount: 120.99,
+    amount: 140.99,
     date: new Date("2022-12-12"),
   },
   {
     id: "e4",
     description: "Badbunny ticket",
     amount: 120.99,
-    date: new Date("2022-08-12"),
+    date: new Date("2022-08-11"),
   },
 ];
 
@@ -46,6 +45,7 @@ const expensesReducer = (state, action) => {
       const updatableExpenseIndex = state.findIndex(
         (expense) => expense.id === action.payload.id
       );
+      console.log("updatableExpenseIndex : ", updatableExpenseIndex);
 
       const updatableExpense = state[updatableExpenseIndex];
       const updatedItem = { ...updatableExpense, ...action.payload.data };

@@ -6,14 +6,10 @@ import { GlobalStyles } from "../../constants/styles";
 import { ExpensesContext } from "../../store/expenses-context";
 
 const ExpensesOutput = ({ expenses, periodName }) => {
-  const expensesCtx = useContext(ExpensesContext);
   return (
     <View style={styles.container}>
-      <ExpensesSummary
-        expenses={expensesCtx.expenses}
-        periodName={periodName}
-      />
-      <ExpensesList expenses={expensesCtx.expenses} />
+      <ExpensesSummary expenses={expenses} periodName={periodName} />
+      <ExpensesList expenses={expenses} />
     </View>
   );
 };
