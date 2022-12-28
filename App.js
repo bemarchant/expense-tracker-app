@@ -2,12 +2,14 @@ import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { Ionicons } from "@expo/vector-icons";
 
+import IconButton from "./components/ui/iconButton";
 import ManageExpense from "./screens/ManageExpense";
 import RecentExpenses from "./screens/RecentExpenses";
 import AllExpenses from "./screens/RecentExpenses";
 import { GlobalStyles } from "./constants/styles";
+
 const Stack = createStackNavigator();
 const BottomTabs = createBottomTabNavigator();
 
@@ -19,6 +21,18 @@ const ExpensesOverview = () => {
         headerTintColor: "white",
         tabBarStyle: { backgroundColor: GlobalStyles.color.primary500 },
         tabBarActiveTintColor: GlobalStyles.color.accent500,
+        headerRight: ({ tintColor }) => {
+          return (
+            <IconButton
+              icon="add"
+              size={24}
+              color={tintColor}
+              onPress={() => {
+                console.log("headerRight");
+              }}
+            />
+          );
+        },
       }}
     >
       <BottomTabs.Screen
@@ -27,9 +41,9 @@ const ExpensesOverview = () => {
         options={{
           title: "All Expenses",
           tabBarLabel: "All Expenses",
-          tabBarIcon: ({ color, size }) => {
-            <Ionicons name="hourglass" color={color} size={size} />;
-          },
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="cash-outline" color={color} size={size} />
+          ),
         }}
       />
       <BottomTabs.Screen
@@ -38,9 +52,9 @@ const ExpensesOverview = () => {
         options={{
           title: "Recent Expenses",
           tabBarLabel: "Recent",
-          tabBarIcon: ({ color, size }) => {
-            <Ionicons name="hourglass" color={color} size={size} />;
-          },
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="hourglass" color={color} size={size} />
+          ),
         }}
       />
     </BottomTabs.Navigator>
