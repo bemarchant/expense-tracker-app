@@ -35,17 +35,6 @@ const ExpensesOverview = () => {
       })}
     >
       <BottomTabs.Screen
-        name="AllExpenses"
-        component={AllExpenses}
-        options={{
-          title: "All Expenses",
-          tabBarLabel: "All Expenses",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="cash-outline" color={color} size={size} />
-          ),
-        }}
-      />
-      <BottomTabs.Screen
         name="RecentExpenses"
         component={RecentExpenses}
         options={{
@@ -53,6 +42,17 @@ const ExpensesOverview = () => {
           tabBarLabel: "Recent",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="hourglass" color={color} size={size} />
+          ),
+        }}
+      />
+      <BottomTabs.Screen
+        name="AllExpenses"
+        component={AllExpenses}
+        options={{
+          title: "All Expenses",
+          tabBarLabel: "All Expenses",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="cash-outline" color={color} size={size} />
           ),
         }}
       />
