@@ -6,7 +6,6 @@ function renderExpenseItem(itemData) {
 }
 
 const ExpensesList = ({ expenses }) => {
-  console.log("ExpensesList");
   return (
     <FlatList
       data={expenses}

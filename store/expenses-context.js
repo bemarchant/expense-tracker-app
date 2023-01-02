@@ -27,6 +27,13 @@ const DUMMY_EXPENSES = [
     amount: 120.99,
     date: new Date("2022-08-11"),
   },
+
+  {
+    id: "e5",
+    description: "Chalk",
+    amount: 9.99,
+    date: new Date("2022-12-28"),
+  },
 ];
 
 export const ExpensesContext = createContext({
@@ -45,7 +52,6 @@ const expensesReducer = (state, action) => {
       const updatableExpenseIndex = state.findIndex(
         (expense) => expense.id === action.payload.id
       );
-      console.log("updatableExpenseIndex : ", updatableExpenseIndex);
 
       const updatableExpense = state[updatableExpenseIndex];
       const updatedItem = { ...updatableExpense, ...action.payload.data };
